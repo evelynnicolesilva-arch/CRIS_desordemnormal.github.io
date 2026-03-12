@@ -1,0 +1,53 @@
+body{
+
+font-family: Arial;
+
+background:#0f0f0f;
+
+color:white;
+
+text-align:center;
+
+}
+
+header{
+
+background:black;
+
+padding:20px;
+
+}
+
+nav a{
+
+color:white;
+
+margin:10px;
+
+text-decoration:none;
+
+}
+
+input{
+
+display:block;
+
+margin:10px auto;
+
+padding:10px;
+
+}
+
+button{
+
+padding:10px 20px;
+
+background:red;
+
+border:none;
+
+color:white;
+
+cursor:pointer;
+
+}
