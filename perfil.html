@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
 
@@ -12,21 +12,15 @@
 
 <body>
 
-<header>
+<div class="box">
 
-<h1>Perfil do Usuário</h1>
+<h2>Perfil</h2>
+
+<p id="usuarioLogado"></p>
 
 <button onclick="logout()">Sair</button>
 
-</header>
-
-<main>
-
-<h2 id="nomeUsuario"></h2>
-
-<p>Bem-vindo à wiki de Ordem Paranormal.</p>
-
-</main>
+</div>
 
 <script src="auth.js"></script>
 
@@ -39,13 +33,3 @@ mostrarUsuario()
 </body>
 
 </html>
-
-<h2 id="nomeUsuario"></h2>
-
-<button onclick="logout()">Sair</button>
-
-<script src="auth.js"></script>
-
-<script>
-mostrarUsuario();
-</script>
