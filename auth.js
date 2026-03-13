@@ -1,57 +1,55 @@
-// CADASTRAR USUÁRIO
 function cadastrar(){
 
-let usuario = document.getElementById("cadUser").value;
-let senha = document.getElementById("cadSenha").value;
+let usuario = document.getElementById("usuarioCadastro").value
+let senha = document.getElementById("senhaCadastro").value
 
 if(usuario === "" || senha === ""){
-alert("Preencha todos os campos");
-return;
+alert("Preencha todos os campos")
+return
 }
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
-let existe = usuarios.find(u => u.usuario === usuario);
+let usuarioExistente = usuarios.find(u => u.usuario === usuario)
 
-if(existe){
-alert("Usuário já existe");
-return;
+if(usuarioExistente){
+alert("Usuário já existe")
+return
 }
 
 usuarios.push({
 usuario: usuario,
 senha: senha
-});
+})
 
-localStorage.setItem("usuarios", JSON.stringify(usuarios));
+localStorage.setItem("usuarios", JSON.stringify(usuarios))
 
-alert("Cadastro realizado com sucesso!");
+alert("Conta criada com sucesso!")
 
-window.location.href = "login.html";
+window.location.href = "login.html"
 
 }
 
 
 
-// LOGIN
 function login(){
 
-let usuario = document.getElementById("loginUser").value;
-let senha = document.getElementById("loginSenha").value;
+let usuario = document.getElementById("usuarioLogin").value
+let senha = document.getElementById("senhaLogin").value
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
-let encontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+let usuarioValido = usuarios.find(u => u.usuario === usuario && u.senha === senha)
 
-if(encontrado){
+if(usuarioValido){
 
-localStorage.setItem("usuarioLogado", usuario);
+localStorage.setItem("usuarioLogado", usuario)
 
-window.location.href = "perfil.html";
+window.location.href = "perfil.html"
 
 }else{
 
-alert("Usuário ou senha incorretos");
+alert("Usuário ou senha incorretos")
 
 }
 
@@ -59,24 +57,28 @@ alert("Usuário ou senha incorretos");
 
 
 
-// MOSTRAR USUÁRIO NO PERFIL
 function mostrarUsuario(){
 
-let usuario = localStorage.getItem("usuarioLogado");
+let usuario = localStorage.getItem("usuarioLogado")
 
 if(usuario){
-document.getElementById("nomeUsuario").innerText = "Usuário: " + usuario;
-}
+
+document.getElementById("usuarioLogado").innerText = "Usuário logado: " + usuario
+
+}else{
+
+window.location.href = "login.html"
 
 }
 
+}
 
 
-// LOGOUT
+
 function logout(){
 
-localStorage.removeItem("usuarioLogado");
+localStorage.removeItem("usuarioLogado")
 
-window.location.href = "login.html";
+window.location.href = "login.html"
 
 }
