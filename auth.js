@@ -34,3 +34,26 @@ localStorage.setItem("usuarios",JSON.stringify(usuarios))
 msg.innerText = "Conta criada com sucesso!"
 
 }
+function login(){
+
+let usuario = document.getElementById("usuarioLogin").value
+let senha = document.getElementById("senhaLogin").value
+let msg = document.getElementById("msgLogin")
+
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
+let encontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha)
+
+if(encontrado){
+
+localStorage.setItem("usuarioLogado",usuario)
+
+msg.innerText = "Login realizado!"
+
+}else{
+
+msg.innerText = "Usuário ou senha incorretos"
+
+}
+
+}
