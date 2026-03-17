@@ -1,59 +1,35 @@
 function cadastrar(){
 
-let usuario = document.getElementById("usuarioCadastro").value
-let senha = document.getElementById("senhaCadastro").value
-let msg = document.getElementById("msgCadastro")
+let usuario = document.getElementById("usuarioCadastro").value;
+let senha = document.getElementById("senhaCadastro").value;
 
-if(!usuario || !senha){
-
-msg.innerText = "Preencha todos os campos"
-return
-
+if(usuario === "" || senha === ""){
+document.getElementById("msgCadastro").innerText = "Preencha todos os campos";
+return;
 }
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+localStorage.setItem(usuario, senha);
 
-let existe = usuarios.find(u => u.usuario === usuario)
-
-if(existe){
-
-msg.innerText = "Usuário já existe"
-return
-
+document.getElementById("msgCadastro").innerText = "Conta criada com sucesso!";
 }
 
-usuarios.push({
-
-usuario:usuario,
-senha:senha
-
-})
-
-localStorage.setItem("usuarios",JSON.stringify(usuarios))
-
-msg.innerText = "Conta criada com sucesso!"
-
-}
 function login(){
 
-let usuario = document.getElementById("usuarioLogin").value
-let senha = document.getElementById("senhaLogin").value
-let msg = document.getElementById("msgLogin")
+let usuario = document.getElementById("usuarioLogin").value;
+let senha = document.getElementById("senhaLogin").value;
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+let senhaSalva = localStorage.getItem(usuario);
 
-let encontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha)
+if(senhaSalva === null){
+document.getElementById("msgLogin").innerText = "Usuário não encontrado";
+return;
+}
 
-if(encontrado){
-
-localStorage.setItem("usuarioLogado",usuario)
-
-msg.innerText = "Login realizado!"
-
+if(senhaSalva === senha){
+document.getElementById("msgLogin").innerText = "Login realizado!";
+window.location.href = "index.html";
 }else{
-
-msg.innerText = "Usuário ou senha incorretos"
-
+document.getElementById("msgLogin").innerText = "Senha incorreta";
 }
 
 }
