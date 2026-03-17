@@ -1,94 +1,148 @@
-body{
+/* RESET */
 
-font-family: Arial;
+*{
 margin:0;
-background:#0f0f0f;
-color:white;
-
+padding:0;
+box-sizing:border-box;
 }
 
-header{
+/* CORPO */
 
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#0f0f0f;
+color:white;
+}
+
+/* HEADER */
+
+header{
 background:#2b0033;
 padding:20px;
-
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:3px solid red;
 }
 
 header h1{
-
 color:#ffd000;
-
+font-size:28px;
 }
+
+header input{
+padding:8px;
+border:none;
+border-radius:5px;
+}
+
+/* LAYOUT */
 
 .layout{
-
 display:flex;
-
 }
 
-aside{
+/* MENU LATERAL */
 
+aside{
 width:220px;
 background:#1a1a1a;
 padding:20px;
 height:100vh;
-
+border-right:2px solid #333;
 }
 
-aside a{
+aside h2{
+margin-bottom:10px;
+color:#ffd000;
+}
 
-color:white;
-text-decoration:none;
-
+aside ul{
+list-style:none;
 }
 
 aside li{
-
 margin:10px 0;
-
 }
+
+aside a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+aside a:hover{
+color:#ffd000;
+}
+
+/* CONTEÚDO */
 
 main{
-
 flex:1;
 padding:30px;
-
 }
 
-.card{
+main h2{
+margin-bottom:10px;
+color:#ffd000;
+}
 
+main p{
+margin-bottom:15px;
+line-height:1.5;
+}
+
+main ul{
+margin-left:20px;
+margin-top:10px;
+}
+
+/* LOGIN E CADASTRO */
+
+section{
+background:#1a1a1a;
+padding:20px;
+margin-bottom:25px;
+border-radius:10px;
+width:300px;
+}
+
+section input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:none;
+border-radius:5px;
+}
+
+section button{
+width:100%;
+padding:10px;
+margin-top:5px;
+background:red;
+border:none;
+color:white;
+font-weight:bold;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+section button:hover{
+background:#ff3b3b;
+}
+
+section p{
+margin-top:8px;
+font-size:14px;
+}
+
+/* CARDS (PARA FUTURAS PÁGINAS) */
+
+.card{
 background:#1f1f1f;
 padding:15px;
 margin:10px 0;
 border-left:5px solid red;
-
-}
-
-.login-box{
-
-width:300px;
-margin:120px auto;
-background:#1a1a1a;
-padding:30px;
-text-align:center;
-
-}
-
-.login-box input{
-
-width:100%;
-padding:10px;
-margin:10px 0;
-
-}
-
-.login-box button{
-
-width:100%;
-padding:10px;
-background:red;
-border:none;
-color:white;
-cursor:pointer;
-
+border-radius:5px;
 }
